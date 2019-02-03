@@ -1,28 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Conways game of life</h1>
+    <GameOfLife />
+    <footer>
+      <h3>About</h3>
+      <p>This game was built by <a href="https://github.com/lemmine/">Adam Precious</a> for a job application. The source code is available from <a href="">this GitHub repo</a> and a live instance of the application is hosted on <a href="">GitHub pages</a></p>
+
+      <p>Documentation for the project, including the specification, design and build instructions, and a list of assumptions is available in the <a href="">project readme</a>.</p>
+    </footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GameOfLife from "./components/GameOfLife.vue"
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    GameOfLife
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
