@@ -18,9 +18,6 @@ export default {
 </script>
 
 <style scoped>
-label {
-    padding-left: 1rem;
-}
 
 fieldset {
     border: 1px solid grey;
