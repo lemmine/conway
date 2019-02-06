@@ -1,5 +1,6 @@
 <template>
     <div id="game-of-life">
+
         <Controls
             v-bind:gridRows="gridRows" v-on:gridRows="gridRows=$event"
             v-bind:gridCols="gridCols" v-on:gridCols="gridCols=$event"
@@ -7,8 +8,16 @@
             v-bind:running="running" v-on:running="running=$event"
             v-bind:tickNum="tickNum"
         />
-        <scenarios />
-        <Grid />
+
+        <!--
+        <scenarios
+            v-on:grid="grid=$event"
+        />
+        -->
+
+        <Grid
+            v-bind:grid="grid" v-on:toggleCell="toggleCell"
+        />
     </div>
 </template>
 
@@ -41,7 +50,7 @@ export default {
         console.log("Loaded the game of life");
 
         //Create a new grid
-		this.importGrid(this.genNewGrid(32,32));
+		this.importGrid(this.genNewGrid(25,25));
     },
 
     //Application methods
@@ -53,11 +62,16 @@ export default {
 
 
 		//Toggle the alive/dead of a given cell
-		toggleCell: function(row, col) {
+		toggleCell: function(coords) {
+
+            //Define the row and column from the coordinates
+            let row = coords[0]
+            let col = coords[1]
+
 			//NOTE: JS limitation prevents reactive state update detection then modifying sub arrays using square brackets
 			//https://codingexplained.com/coding/front-end/vue-js/array-change-detection
 			//https://vuejs.org/v2/guide/reactivity.html#Change-Detection-Caveats
-			Vue.set(this.grid[row], col, !this.grid[row][col]);
+			this.$set(this.grid[row], col, !this.grid[row][col]);
 		},
 
 

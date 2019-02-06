@@ -15,7 +15,7 @@ export default {
         return {
             buttons: [
                 {
-                    name: "Default grid",
+                    name: "Reset grid",
                     action: []
                 },
                 {
