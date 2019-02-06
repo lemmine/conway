@@ -42,18 +42,6 @@ const app = new Vue({
 
 	//App methods
 	methods: {
-		//Set the number of rows on the board
-		setRows: function(rows) {
-
-		},
-
-
-		//Set the numver of columns on the grid
-		setCols: function(cols) {
-
-		},
-
-
 		//Get the state of a given cell
 		getCell: function(row, col) {
 			return this.grid[row][col];

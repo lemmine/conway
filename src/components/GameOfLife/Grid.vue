@@ -21,6 +21,6 @@ export default {
 
 fieldset {
     border: 1px solid grey;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 </style>
