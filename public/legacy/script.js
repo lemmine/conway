@@ -280,7 +280,7 @@ const app = new Vue({
 				let newGrid = this.genNewGrid(this.gridRows, newColCount, this.grid);
 				this.grid = newGrid;
 			}
-		},
+		}
 		
 		/*
 		runGame: {

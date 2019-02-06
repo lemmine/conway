@@ -3,30 +3,40 @@
         <legend>Controls</legend>
 
         <label for="row-count">Grid rows:</label>
-        <input id="row-count" type="number" min="3">
+        <input v-bind:value="gridRows" v-on:input="setGridRows" id="row-count" type="number" min="3">
 
         <label for="col-count">Grid columns:</label>
-        <input id="col-count" type="number" min="3">
+        <input v-bind:value="gridCols" v-on:input="setGridCols" id="col-count" type="number" min="3">
 
         <label for="tick-rate">Tick rate:</label>
         <input v-bind:value="tickRate" v-on:input="setTickRate" id="tick-rate" type="number" min="1">
 
         <label for="run">Run game:</label>
-        <input id="run" type="checkbox">
+        <input v-bind:value="running" v-on:input="setRunning" id="run" type="checkbox">
 
         <label for="tick-now">Current tick:</label>
-        <span id="tick-now"></span>
+        <span id="tick-now">{{tickNum}}</span>
     </fieldset>
 </template>
 
 <script>
 export default {
     //Define incoming properties from parent
-    props: ["tickRate"],
+    props: ["gridRows", "gridCols", "tickRate", "running", "tickNum"],
 
+    //Define setters for parent
     methods: {
+        setGridRows: function(e) {
+            this.$emit("gridRows", parseInt(e.target.value))
+        },
+        setGridCols: function(e) {
+            this.$emit("gridCols", parseInt(e.target.value))
+        },
         setTickRate: function(e) {
             this.$emit("tickRate", parseInt(e.target.value));
+        },
+        setRunning: function(e) {
+            this.$emit("running", e.target.checked);
         }
     },
 }
@@ -44,6 +54,10 @@ fieldset {
 
 input[type="number"] {
     width: 4em;
+    margin-left: .5em;
+}
+
+span {
     margin-left: .5em;
 }
 </style>

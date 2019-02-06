@@ -1,7 +1,11 @@
 <template>
     <div id="game-of-life">
         <Controls
+            v-bind:gridRows="gridRows" v-on:gridRows="gridRows=$event"
+            v-bind:gridCols="gridCols" v-on:gridCols="gridCols=$event"
             v-bind:tickRate="tickRate" v-on:tickRate="tickRate=$event"
+            v-bind:running="running" v-on:running="running=$event"
+            v-bind:tickNum="tickNum"
         />
         <scenarios />
         <Grid />
@@ -204,7 +208,7 @@ export default {
 				row.forEach(cell => {
 
 					//Ensure each cell is a boolean
-					if (!typeof cell === "boolean") {
+					if (!(typeof cell === "boolean")) {
 						return false;
 					}
 				});
@@ -250,7 +254,50 @@ export default {
 			return newGrid;
 		}
 
-    }
+    },
+
+
+
+	//Computed variables
+	computed: {
+
+		gridRows: {
+
+			get: function() {
+				return this.grid.length;
+			},
+
+			set: function(newRowCount) {
+				let newGrid = this.genNewGrid(newRowCount, this.gridCols, this.grid);
+				this.grid = newGrid;
+			}
+		},
+
+		gridCols: {
+
+			get: function() {
+				//NOTE: This function requires that all grid rows have the same number of columns
+				//For this reason, error checking is used when importing grids
+				return this.grid[0].length;
+			},
+
+			set: function(newColCount) {
+				let newGrid = this.genNewGrid(this.gridRows, newColCount, this.grid);
+				this.grid = newGrid;
+			}
+		}
+	},
+
+
+
+    //Actions to perform triggered by a data manipulation
+	watch: {
+		
+		//Detect an update to the ticking data variable and attempt to perform a game tick
+		running: function() {
+			this.gameTick();
+		}
+	}
 }
 </script>
 

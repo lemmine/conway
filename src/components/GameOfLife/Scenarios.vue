@@ -16,15 +16,19 @@ export default {
             buttons: [
                 {
                     name: "Default grid",
-                    data: []
+                    action: []
+                },
+                {
+                    name: "Static shapes",
+                    action: []
                 },
                 {
                     name: "Repeating patterns",
-                    data: []
+                    action: []
                 },
                 {
                     name: "Glider",
-                    data: []
+                    action: []
                 }
             ]
         }
