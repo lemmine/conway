@@ -1,6 +1,8 @@
 <template>
     <div id="game-of-life">
-        <Controls />
+        <Controls
+            v-bind:tickRate="tickRate" v-on:tickRate="tickRate=$event"
+        />
         <scenarios />
         <Grid />
     </div>
@@ -51,7 +53,7 @@ export default {
 			//NOTE: JS limitation prevents reactive state update detection then modifying sub arrays using square brackets
 			//https://codingexplained.com/coding/front-end/vue-js/array-change-detection
 			//https://vuejs.org/v2/guide/reactivity.html#Change-Detection-Caveats
-			Vue.set(this.grid[row], col, !this.grid[row][col])
+			Vue.set(this.grid[row], col, !this.grid[row][col]);
 		},
 
 
@@ -73,7 +75,7 @@ export default {
 
 				//Correct negative position by offsetting by axis length
 				while (axisPos < 0) {
-					axisPos = axisPos + length
+					axisPos = axisPos + length;
 				}
 
 				//Return neighbour axis position
@@ -124,7 +126,7 @@ export default {
 			this.tickNum++;
 
 			//Push the new grid state to the DOM
-			this.grid = this.advanceGrid()
+			this.grid = this.advanceGrid();
 
 			//Post next tick
 			setTimeout(this.gameTick, 1000/this.tickRate);

@@ -9,7 +9,7 @@
         <input id="col-count" type="number" min="3">
 
         <label for="tick-rate">Tick rate:</label>
-        <input id="tick-rate" type="number" min="1">
+        <input v-bind:value="tickRate" v-on:input="setTickRate" id="tick-rate" type="number" min="1">
 
         <label for="run">Run game:</label>
         <input id="run" type="checkbox">
@@ -21,6 +21,14 @@
 
 <script>
 export default {
+    //Define incoming properties from parent
+    props: ["tickRate"],
+
+    methods: {
+        setTickRate: function(e) {
+            this.$emit("tickRate", parseInt(e.target.value));
+        }
+    },
 }
 </script>
 
