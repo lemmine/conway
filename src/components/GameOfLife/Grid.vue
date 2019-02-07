@@ -22,6 +22,8 @@ export default {
 
     //Define setters for parent
     methods: {
+
+        //Toggle the state of a given cell by its row and column
         toggleCell: function(rowIndex, colIndex) {
             this.$emit("toggleCell", [rowIndex, colIndex]);
         }

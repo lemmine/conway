@@ -2,8 +2,8 @@
     <fieldset>
         <legend>Scenarios</legend>
 
-        <button class="button" v-for="col in buttons" v-bind:key="col.id">
-            <span>{{col.name}}</span>
+        <button class="button" v-for="(preset, presetIndex) in presets" v-bind:key="presetIndex" v-on:click="setGrid(presetIndex)">
+            <span>{{preset.name}}</span>
         </button>
 
     </fieldset>
@@ -11,26 +11,60 @@
 
 <script>
 export default {
+
+    //Define the components data
     data: function() {
         return {
-            buttons: [
+
+            //Define the preset scenarios
+            presets: [
                 {
                     name: "Reset grid",
-                    action: []
+                    url: "/grids/default.json",
+                    grid: []
                 },
                 {
-                    name: "Static shapes",
-                    action: []
+                    name: "Still life",
+                    url: "/grids/still.json",
+                    grid: []
                 },
                 {
-                    name: "Repeating patterns",
-                    action: []
+                    name: "Repeating life",
+                    url: "/grids/repeating.json",
+                    grid: []
                 },
                 {
-                    name: "Glider",
-                    action: []
+                    name: "Gliders",
+                    url: "/grids/gliders.json",
+                    grid: []
                 }
             ]
+        }
+    },
+
+    //Called on component creation
+    created: function() {
+
+        //Fetch the grid data for each preset
+        this.presets.forEach(preset => {
+            fetch(preset.url)
+
+                //Convert the response to JSON
+                .then(response => response.json())
+
+                //Set the presets JSON to the reponse JSON
+                .then(json => {
+                    preset.grid = json;
+                })
+        })
+    },
+
+    //Define setters for parent
+    methods: {
+
+        //Replace the current grid with a given preset by its index
+        setGrid: function(presetIndex) {
+            this.$emit("newGrid", this.presets[presetIndex].grid);
         }
     }
 }

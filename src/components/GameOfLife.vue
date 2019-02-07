@@ -9,11 +9,9 @@
             v-bind:tickNum="tickNum"
         />
 
-        <!--
         <scenarios
-            v-on:grid="grid=$event"
+            v-on:newGrid="importGrid"
         />
-        -->
 
         <Grid
             v-bind:grid="grid" v-on:toggleCell="toggleCell"
@@ -45,7 +43,7 @@ export default {
         }
     },
 
-    //Called on instance creation
+    //Called on component creation
     created: function() {
         console.log("Loaded the game of life");
 
@@ -227,6 +225,9 @@ export default {
 					}
 				});
 			});
+
+			//Reset the games current tick
+			this.tickNum = 0;
 
 			//Import the grid
 			this.grid = grid;

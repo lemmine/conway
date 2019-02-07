@@ -26,15 +26,32 @@ export default {
 
     //Define setters for parent
     methods: {
+
+        //Set the number of rows in the grid
         setGridRows: function(e) {
-            this.$emit("gridRows", parseInt(e.target.value))
+            let rows = parseInt(e.target.value)
+            if (rows >= 3) {
+                this.$emit("gridRows", rows);
+            }
         },
+
+        //Set the number of columns in the grid
         setGridCols: function(e) {
-            this.$emit("gridCols", parseInt(e.target.value))
+            let cols = parseInt(e.target.value)
+            if (cols >= 3) {
+                this.$emit("gridCols", cols);
+            }
         },
+
+        //Set the games tick rate
         setTickRate: function(e) {
-            this.$emit("tickRate", parseInt(e.target.value));
+            let tickRate = parseInt(e.target.value)
+            if (tickRate >= 1) {
+                this.$emit("tickRate", tickRate);
+            }
         },
+
+        //Toggle the run loop
         setRunning: function(e) {
             this.$emit("running", e.target.checked);
         }
