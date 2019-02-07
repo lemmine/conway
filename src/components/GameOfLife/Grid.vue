@@ -3,9 +3,9 @@
         <legend>Game Grid</legend>
 
         <table id="grid">
-            <tr v-for="(row, rowIndex) in grid">
+            <tr v-for="(row, rowIndex) in grid" v-bind:key="rowIndex">
                 <td
-                    v-for="(col, colIndex) in row"
+                    v-for="(col, colIndex) in row"  v-bind:key="colIndex"
                     v-bind:class="{alive: col}"
                     v-on:click="toggleCell(rowIndex, colIndex)">
                 </td>

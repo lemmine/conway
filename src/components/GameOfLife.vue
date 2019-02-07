@@ -45,7 +45,6 @@ export default {
 
     //Called on component creation
     created: function() {
-        console.log("Loaded the game of life");
 
         //Create a new grid
 		this.importGrid(this.genNewGrid(25,25));

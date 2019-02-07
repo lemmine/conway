@@ -25,4 +25,8 @@ export default {
 
 <style scoped>
 
+h1, h3, p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 </style>

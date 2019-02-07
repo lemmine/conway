@@ -14,7 +14,7 @@
 	* The UI has been decoupled from the game logic by using Vue.js components
 
 ## Project creation
-This project was created by running the following commands
+For reference, this project was created by running the following commands
 ```
 npm init -y
 npm install @vue/cli
@@ -25,10 +25,9 @@ npm run serve
 ```
 
 ## Cloning, building, and running this project
-**Important:** The Vue.js cli tools must be added to this project before `npm run serve` will work 
 1. Clone this project to a local directory `git clone https://github.com/lemmine/conway`
 2. Change directory into the root of the newly cloned project `cd conway/`
-3. Add the vue-cli tools to the project `npm install @vue/cli`
+3. Add the vue-cli tools to the project `npm install`
 4. Launch a local development server `npm run serve`
 5. Navigate to the address and port shown in your terminal with a web browser
 
@@ -45,11 +44,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files
