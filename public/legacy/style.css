@@ -1,14 +1,9 @@
 /*
- *
- *
+ * Stylesheet for Conways Game of Life
  */
 
 * {
 	box-sizing: border-box;
-}
-
-body {
-
 }
 
 label {

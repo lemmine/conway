@@ -1,5 +1,5 @@
 /*
- *
+ * Javascript for Conways Game of Life
  */
 
 //Initial logout

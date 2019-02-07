@@ -1,22 +1,22 @@
 <template>
-    <div id="game-of-life">
+	<div id="game-of-life">
 
-        <Controls
-            v-bind:gridRows="gridRows" v-on:gridRows="gridRows=$event"
-            v-bind:gridCols="gridCols" v-on:gridCols="gridCols=$event"
-            v-bind:tickRate="tickRate" v-on:tickRate="tickRate=$event"
-            v-bind:running="running" v-on:running="running=$event"
-            v-bind:tickNum="tickNum"
-        />
+		<Controls
+			v-bind:gridRows="gridRows" v-on:gridRows="gridRows=$event"
+			v-bind:gridCols="gridCols" v-on:gridCols="gridCols=$event"
+			v-bind:tickRate="tickRate" v-on:tickRate="tickRate=$event"
+			v-bind:running="running" v-on:running="running=$event"
+			v-bind:tickNum="tickNum"
+		/>
 
-        <scenarios
-            v-on:newGrid="importGrid"
-        />
+		<scenarios
+			v-on:newGrid="importGrid"
+		/>
 
-        <Grid
-            v-bind:grid="grid" v-on:toggleCell="toggleCell"
-        />
-    </div>
+		<Grid
+			v-bind:grid="grid" v-on:toggleCell="toggleCell"
+		/>
+	</div>
 </template>
 
 <script>
@@ -26,32 +26,32 @@ import Scenarios from "./GameOfLife/Scenarios.vue";
 import Grid from "./GameOfLife/Grid.vue";
 
 export default {
-    //Import components
-    components: {
-        Controls,
-        Scenarios,
-        Grid
-    },
+	//Import components
+	components: {
+		Controls,
+		Scenarios,
+		Grid
+	},
 
-    //Application data
-    data: function() {
-        return {
-            grid: [], //The game of life grid
-            tickNum: 0, //The current game tick
-            tickRate: 4, //The game speed
-            running: false //Whether hte game is currently running
-        }
-    },
+	//Application data
+	data: function() {
+		return {
+			grid: [], //The game of life grid
+			tickNum: 0, //The current game tick
+			tickRate: 4, //The game speed
+			running: false //Whether hte game is currently running
+		}
+	},
 
-    //Called on component creation
-    created: function() {
+	//Called on component creation
+	created: function() {
 
-        //Create a new grid
+		//Create a new grid
 		this.importGrid(this.genNewGrid(25,25));
-    },
+	},
 
-    //Application methods
-    methods: {
+	//Application methods
+	methods: {
 		//Get the state of a given cell
 		getCell: function(row, col) {
 			return this.grid[row][col];
@@ -61,9 +61,9 @@ export default {
 		//Toggle the alive/dead of a given cell
 		toggleCell: function(coords) {
 
-            //Define the row and column from the coordinates
-            let row = coords[0]
-            let col = coords[1]
+			//Define the row and column from the coordinates
+			let row = coords[0]
+			let col = coords[1]
 
 			//NOTE: JS limitation prevents reactive state update detection then modifying sub arrays using square brackets
 			//https://codingexplained.com/coding/front-end/vue-js/array-change-detection
@@ -268,7 +268,7 @@ export default {
 			return newGrid;
 		}
 
-    },
+	},
 
 
 
@@ -304,7 +304,7 @@ export default {
 
 
 
-    //Actions to perform triggered by a data manipulation
+	//Actions to perform triggered by a data manipulation
 	watch: {
 		
 		//Detect an update to the ticking data variable and attempt to perform a game tick
