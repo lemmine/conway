@@ -3,6 +3,12 @@
 		<h1>Conways Game of Life</h1>
 		<GameOfLife />
 		<footer>
+			<h3>How to use</h3>
+			<ul>
+				<li>Either select a scenario or create your own by clicking on grid squares to toggle their state</li>
+				<li>Click the "Run game" checkbox</li>
+				<li>Use the "Grid rows" and "Grid columns" to change the grids size, and "Tick rate" to change the speed of the game</li>
+			</ul>
 			<h3>About</h3>
 			<p>This project is a vue.js implementation of <a href="/Game of Life Exercise Candidate Instructions.pdf">Conways Game of Life</a> built by <a href="https://github.com/lemmine/">Adam Precious</a> for a job application. The source code is available from <a href="https://github.com/lemmine/conway">this GitHub repo</a></p>
 
@@ -25,7 +31,7 @@ export default {
 
 <style scoped>
 
-h1, h3, p {
+h1, h3, p, ul {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
