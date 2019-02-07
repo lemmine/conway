@@ -1,7 +1,7 @@
-# conway
+# Conways Game of Life
 
 ## Project requirements
-* Use your preferred language or framework to build an implementation of Conways Game of Life
+* Use your preferred language or framework to build an implementation of [Conways Game of Life] (https://github.com/lemmine/conway/blob/master/public/Game%20of%20Life%20Exercise%20Candidate%20Instructions.pdf)
 * Ensure your code is written to a high quality and is maintainable
 * State any assumptions you havemade about the problem
 
@@ -25,8 +25,8 @@ npm run serve
 ```
 
 ## Cloning, building, and running this project
-*Important:* The Vue.js cli tools must be added to this project before `npm run serve` will work 
-1. Close this project to a local directory `git clone https://github.com/lemmine/conway`
+**Important:** The Vue.js cli tools must be added to this project before `npm run serve` will work 
+1. Clone this project to a local directory `git clone https://github.com/lemmine/conway`
 2. Change directory into the root of the newly cloned project `cd conway/`
 3. Add the vue-cli tools to the project `npm install @vue/cli`
 4. Launch a local development server `npm run serve`
